@@ -1,0 +1,15 @@
+name: Actions Wrokflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1 # release @v1 or specific commit @ad41a6c27317e688719c813b0d6a25685a9bce54 or branch name @master
+        with: # inputs
+          who-to-greet: Patri
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
